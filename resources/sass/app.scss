@@ -4,5 +4,30 @@
 // Variables
 @import 'variables';
 
+// Override color
+$theme-colors: (
+  "primary": #0074d9,
+  "danger": #ff4136,
+  "success": #18bc9e
+);
+
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
+
+// Pagination color
+.page-item.active .page-link {
+    background-color: #18bc9e;
+    border-color: #18bc9e;
+}
+
+.page-link {  
+    color: #18bc9e;
+}
+
+.page-link:hover {  
+   color: #18bc9e; 
+}
+
+.page-link:focus {
+    box-shadow: 0 0 0 0.2rem #18bc9e;
+  }

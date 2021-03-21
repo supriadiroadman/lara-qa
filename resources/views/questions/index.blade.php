@@ -13,8 +13,10 @@
 
                         {{-- <img src="..." class="mr-3" alt="..."> --}}
                         <div class="media-body">
-                            <h4 class="mt-0">{{$question->title}}</h4>
-                            <p>{{ Str::words($question->body, 50, '...') }}</p>
+                            <h4 class="mt-0"><a href="{{ $question->url }}">{{$question->title}}</a></h4>
+                            Asked by <a href="{{ $question->user->url }}">{{ $question->user->name }}</a>
+                            <small class="text-muted">{{ $question->created_date }}</small>
+                            <p class="lead mt-3">{{ Str::words($question->body, 50, '...') }}</p>
                         </div>
                     </div>
                     <hr>

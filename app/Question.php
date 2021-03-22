@@ -22,7 +22,7 @@ class Question extends Model
 
     public function getUrlAttribute()
     {
-        return route('questions.show', $this->id);
+        return route('questions.show', $this);
     }
 
     public function getCreatedDateAttribute()
@@ -38,5 +38,10 @@ class Question extends Model
             }
             return " border border-success text-success";
         }
+    }
+
+    public function getBodyHtml()
+    {
+        return \Parsedown::instance()->text($this->body);
     }
 }

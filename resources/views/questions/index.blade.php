@@ -39,7 +39,14 @@
                         </div>
 
                         <div class="ml-4 d-flex align-self-end">
-                            <a href="{{ route('questions.edit', $question) }}" class="btn btn-outline-success">Edit</a>
+                            <a href="{{ route('questions.edit', $question) }}"
+                                class="btn btn-outline-success mr-1">Edit</a>
+                            <form action="{{ route('questions.destroy', $question) }}" method="POST">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-outline-danger"
+                                    onclick="return confirm('Are you sure ?')">Delete</button>
+                            </form>
                         </div>
                     </div>
                     <hr>

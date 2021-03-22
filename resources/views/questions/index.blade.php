@@ -30,12 +30,16 @@
                             <div class="text-muted">
                                 {{ $question->views." ". \Str::plural('view', $question->views) }}</div>
                         </div>
-                        {{-- <img src="..." class="mr-3" alt="..."> --}}
+
                         <div class="media-body">
                             <h4 class="mt-0"><a href="{{ $question->url }}">{{$question->title}}</a></h4>
                             Asked by <a href="{{ $question->user->url }}">{{ $question->user->name }}</a>
                             <small class="text-muted">{{ $question->created_date }}</small>
                             <p class="lead mt-3">{{ Str::words($question->body, 50, '...') }}</p>
+                        </div>
+
+                        <div class="ml-4 d-flex align-self-end">
+                            <a href="{{ route('questions.edit', $question) }}" class="btn btn-outline-success">Edit</a>
                         </div>
                     </div>
                     <hr>

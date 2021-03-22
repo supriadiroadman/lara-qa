@@ -7,7 +7,7 @@
             <div class="card">
                 <div class="card-header text-white bg-success">
                     <div class="d-flex justify-content-between">
-                        <h3> Ask Questions</h3>
+                        <h3> Edit Questions</h3>
                         <a href="{{ route('questions.index') }}" class="btn btn-outline-light">
                             Back to all Question
                         </a>
@@ -15,8 +15,9 @@
                 </div>
 
                 <div class="card-body bg-light">
-                    <form action="{{ route('questions.store') }}" method="POST">
-                        @include('questions._form', ['buttonText' => 'Ask this Question'])
+                    <form action="{{ route('questions.update', $question) }}" method="POST">
+                        @method('PUT')
+                        @include('questions._form', ['buttonText' => 'Update Question'])
                     </form>
                 </div>
             </div>

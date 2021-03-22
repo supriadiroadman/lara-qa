@@ -5,7 +5,14 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card">
-                <div class="card-header text-white bg-success">All Questions</div>
+                <div class="card-header text-white bg-success">
+                    <div class="d-flex justify-content-between">
+                        <h3> All Questions</h3>
+                        <a href="{{ route('questions.create') }}" class="btn btn-outline-light">
+                            Ask Question
+                        </a>
+                    </div>
+                </div>
 
                 <div class="card-body bg-light">
                     @foreach ($questions as $question)

@@ -30,7 +30,8 @@
                         <div class="form-group">
                             <label for="body">Your question</label>
                             <textarea class="form-control @error('body') is-invalid @enderror" name="body" id="body"
-                                rows="3" value="{{ old('body') }}"></textarea>
+                                rows="3">{{ old('body') }}
+                            </textarea>
                             @error('body')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>

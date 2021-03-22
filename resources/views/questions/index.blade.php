@@ -15,6 +15,7 @@
                 </div>
 
                 <div class="card-body bg-light">
+                    @include('layouts._flash-message')
                     @foreach ($questions as $question)
                     <div class="media">
                         <div class="mr-5 text-center">

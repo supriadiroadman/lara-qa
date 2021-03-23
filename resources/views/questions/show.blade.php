@@ -17,8 +17,58 @@
                 </div>
 
                 <div class="card-body bg-light">
-                    {{-- {!!$question->body!!} --}}
-                    {!! parsedown($question->body) !!}
+                    <div class="media mb-4">
+                        <a href="{{ $question->user->url }}" class="mr-3">
+                            <img src="{{ $question->user->avatar }}">
+                        </a>
+                        <div class="media-body">
+                            <h5 class="my-0">
+                                <a href="{{ $question->user->url }}">{{ $question->user->name }}</a>
+                            </h5>
+                            <small class="text-muted mt-0"> {{ $question->created_date }}</small>
+                        </div>
+                    </div>
+
+                    {{-- {!! parsedown($question->body) !!} --}}
+                    {!! $question->body_html !!}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row ml-3 mt-4">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-body bg-light">
+                    <div class="card-title">
+                        <h2>
+                            {{ $question->answers_count. " ". Str::plural('Answer', $question->answers_count)}}
+                        </h2>
+                    </div>
+                    <hr>
+
+                    @foreach ($question->answers as $answer)
+                    <div class="media">
+                        <div class="media-body">
+                            <div class="media mb-4">
+                                <a href="{{ $answer->user->url }}" class="mr-3">
+                                    <img src="{{ $answer->user->avatar }}">
+                                </a>
+                                <div class="media-body">
+                                    <h5 class="my-0">
+                                        <a href="{{ $answer->user->url }}">{{ $answer->user->name }}</a>
+                                    </h5>
+                                    <small class="text-muted mt-0">Answered {{ $answer->created_date }}</small>
+                                </div>
+                            </div>
+
+                            {{-- {!! parsedown($answer->body) !!} --}}
+                            {!! $answer->body_html !!}
+                        </div>
+                    </div>
+                    <hr>
+                    @endforeach
+
                 </div>
             </div>
         </div>

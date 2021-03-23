@@ -56,7 +56,8 @@ class QuestionController extends Controller
      */
     public function show(Question $question)
     {
-        $question->increment('views');
+        $question->increment('views'); // add 1 to column views
+        $question->load('answers.user'); // add eager loading
         return view('questions.show', compact('question'));
     }
 

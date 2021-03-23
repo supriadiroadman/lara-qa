@@ -20,4 +20,11 @@ class Answer extends Model
     {
         return \Parsedown::instance()->text($this->body);
     }
+
+    protected static function booted()
+    {
+        static::created(function ($answer) {
+            $answer->question->increment('answers_count'); // menambah 1 ke kolom answers_count setiap save/update tabel answers (model answer)
+        });
+    }
 }

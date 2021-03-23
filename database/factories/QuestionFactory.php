@@ -11,7 +11,7 @@ $factory->define(Question::class, function (Faker $faker) {
         'body' => $faker->paragraphs(rand(2, 5), true), // min: 2 paragraph, true => /n (linebreak)
         'votes' => rand(-3, 10), // can minus
         'views' => rand(0, 10),
-        'answers_count' => rand(0, 10),
-        'user_id' => 1
+        // 'user_id' => 1, Di generate dari DatabaseSeeder.php
+        // 'answers_count' => rand(0, 10), // defaultnya 0 ketika dibuat (lihat di DatabaseSeeder.php). answers_count diupdate melalui method booted di model Answer agar sesuai jumlah answer utk setiap question.
     ];
 });

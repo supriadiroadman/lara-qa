@@ -29,8 +29,30 @@
                         </div>
                     </div>
 
-                    {{-- {!! parsedown($question->body) !!} --}}
-                    {!! $question->body_html !!}
+                    <div class="media">
+                        <div class="d-flex flex-column text-center mr-4">
+                            <a title="This question is usefull" class="text-dark mb-1" role="button">
+                                <i class="fas fa-caret-up fa-3x"></i>
+                            </a>
+                            <span class="h4 my-0">1230</span>
+
+                            <a title="This question is not usefull" class="text-secondary mb-2" role="button">
+                                <i class="fas fa-caret-down fa-3x"></i>
+                            </a>
+
+                            <a title="Click to mark as favorite question (CLick again to undo)" class="text-success"
+                                role="button">
+                                <i class="fas fa-star fa-2x"></i>
+                                <span class="d-block">123</span>
+                            </a>
+
+                        </div>
+                        <div class="media-body mt-2">
+                            {{-- {!! parsedown($question->body) !!} --}}
+                            {!! $question->body_html !!}
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>
@@ -62,8 +84,27 @@
                                 </div>
                             </div>
 
-                            {{-- {!! parsedown($answer->body) !!} --}}
-                            {!! $answer->body_html !!}
+                            <div class="media">
+                                <div class="d-flex flex-column text-center mr-4">
+                                    <a title="This question is usefull" class="text-dark mb-1" role="button">
+                                        <i class="fas fa-caret-up fa-3x"></i>
+                                    </a>
+                                    <span class="h4 my-0">1230</span>
+
+                                    <a title="This question is not usefull" class="text-secondary mb-2" role="button">
+                                        <i class="fas fa-caret-down fa-3x"></i>
+                                    </a>
+
+                                    <a title="Mark this answer as best answer" class="text-success mt-2" role="button">
+                                        <i class="fas fa-check fa-2x"></i>
+                                    </a>
+
+                                </div>
+                                <div class="media-body mt-2">
+                                    {{-- {!! parsedown($question->body) !!} --}}
+                                    {!! $question->body_html !!}
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <hr>

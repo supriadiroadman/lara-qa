@@ -29,6 +29,11 @@ class Answer extends Model
         static::created(function ($answer) {
             $answer->question->increment('answers_count'); // menambah 1 ke kolom answers_count setiap save/update tabel answers (model answer)
         });
+
+        static::deleted(function ($answer) // Kurangi 1 setiap answer dihapus
+        {
+            $answer->question->decrement('answers_count');
+        });
     }
 
     public function getCreatedDateAttribute()

@@ -51,5 +51,11 @@ class Question extends Model
         return parsedown($this->body);
     }
 
+    public function acceptBestAnswer(Answer $answer)
+    {
+        $this->best_answer_id = $answer->id;
+        $this->save();
+    }
+
     // protected $with = ['answers.user']; // For eager loading automatic
 }

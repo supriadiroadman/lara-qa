@@ -36,10 +36,25 @@
                                     <i class="fas fa-caret-down fa-3x"></i>
                                 </a>
 
+                                @can('accept', $answer)
                                 <a title="Mark this answer as best answer" class="mt-2 {{ $answer->status }}"
-                                    role="button">
+                                    role="button"
+                                    onclick="event.preventDefault(); document.getElementById('accept-answer-{{ $answer->id }}').submit();">
                                     <i class="fas fa-check fa-2x"></i>
                                 </a>
+                                <form id="accept-answer-{{ $answer->id }}"
+                                    action="{{ route('answers.accept', $answer) }}" method="post" method="POST"
+                                    style="display: none">
+                                    @csrf
+                                </form>
+                                @else
+                                @if ($answer->is_best)
+                                <a title="The question owner accepted this answer as best answer"
+                                    class="mt-2 {{ $answer->status }}" role="button">
+                                    <i class="fas fa-check fa-2x"></i>
+                                </a>
+                                @endif
+                                @endcan
 
                             </div>
                             <div class="media-body mt-2">

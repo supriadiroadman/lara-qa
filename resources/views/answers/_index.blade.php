@@ -9,6 +9,7 @@
                 </div>
                 <hr>
                 @include('layouts._flash-message')
+
                 @foreach ($question->answers as $answer)
                 <div class="media">
                     <div class="media-body">
@@ -46,6 +47,25 @@
                             </div>
                         </div>
                     </div>
+
+
+                    <div class="ml-4 d-flex align-self-end">
+                        @can('update', $answer)
+                        <a href="{{ route('questions.answers.edit',[$question, $answer]) }}"
+                            class="btn btn-outline-success mr-1">Edit
+                        </a>
+                        @endcan
+
+                        @can('delete', $answer)
+                        <form action="{{ route('questions.answers.destroy',[$question, $answer]) }}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-outline-danger"
+                                onclick="return confirm('Are you sure ?')">Delete</button>
+                        </form>
+                        @endcan
+                    </div>
+
                 </div>
                 <hr>
                 @endforeach

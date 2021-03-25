@@ -36,7 +36,8 @@
                                     <i class="fas fa-caret-down fa-3x"></i>
                                 </a>
 
-                                <a title="Mark this answer as best answer" class="text-success mt-2" role="button">
+                                <a title="Mark this answer as best answer" class="mt-2 {{ $answer->status }}"
+                                    role="button">
                                     <i class="fas fa-check fa-2x"></i>
                                 </a>
 

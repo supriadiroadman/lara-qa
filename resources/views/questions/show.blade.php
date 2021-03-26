@@ -40,11 +40,20 @@
                                 <i class="fas fa-caret-down fa-3x"></i>
                             </a>
 
-                            <a title="Click to mark as favorite question (CLick again to undo)" class="text-success"
-                                role="button">
+                            <a title="Click to mark as favorite question (CLick again to undo)"
+                                class="{{ Auth::guest() ? 'text-secondary' : ($question->is_favorited ? 'text-success' : 'text-secondary') }}"
+                                role="button"
+                                onclick="event.preventDefault(); document.getElementById('favorite-question-{{ $question->id }}').submit();">
                                 <i class="fas fa-star fa-2x"></i>
-                                <span class="d-block">123</span>
+                                <span class="d-block">{{ $question->favorites_count }}</span>
                             </a>
+                            <form id="favorite-question-{{ $question->id }}"
+                                action="/questions/{{$question->id}}/favorites" method="POST" style="display: none">
+                                @csrf
+                                @if ($question->is_favorited)
+                                @method('DELETE')
+                                @endif
+                            </form>
 
                         </div>
                         <div class="media-body mt-2">
